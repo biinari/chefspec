@@ -15,7 +15,7 @@ module ChefSpec
                 when 'cookbook_file'
                   cookbook_name = resource.cookbook || resource.cookbook_name
                   cookbook = chef_run.run_context.cookbook_collection[cookbook_name]
-                  @actual_content = File.read(cookbook.preferred_filename_on_disk_location(chef_run.node, :files, resource.source, resource.path))
+                  @actual_content = File.read(cookbook.preferred_filename_on_disk_location(chef_run.node, :files, resource.source))
               end
 
               if content.is_a?(Regexp)
